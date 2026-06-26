@@ -1,14 +1,38 @@
-# Проект FitLife - MVP версия 1.0
+print("Привет! Я фитнес-бот!")
+print("Давай познакомимся!")
 
 user_name = input("Как тебя зовут? ")
-user_age = int(input("Сколько тебе лет? "))
 
-user_weight = float(input("Какой у тебя вес (в кг)? "))
-user_height = float(input("Какой у тебя рост (в метрах)? "))
+while True:
+    try:
+        user_age = int(input("Сколько тебе лет? "))
+        break
+    except ValueError:
+        print("Ошибка! Введите число, например: 25")
 
+while True:
+    try:
+        user_weight = float(input(
+            "Какой у тебя вес (в кг)? Используй точку, например: 75.5 "
+        ))
+        break
+    except ValueError:
+        print("Ошибка! Введите число с точкой, например: 75.5")
+
+while True:
+    try:
+        user_height = float(input(
+            "Какой у тебя рост (в метрах)? Используй точку, например: 1.75 "
+        ))
+        break
+    except ValueError:
+        print("Ошибка! Введите число с точкой, например: 1.75")
+
+# Расчёт индекса массы тела
 bmi = user_weight / (user_height ** 2)
 bmi_rounded = round(bmi, 1)
 
+# Расчёт нормы воды
 water_ml = user_weight * 30
 water_l = round(water_ml / 1000, 2)
 
@@ -21,3 +45,5 @@ print(f"ИМТ: {bmi_rounded}")
 print(f"Норма воды: {water_l} литра в день")
 print("=" * 40)
 print("Расчет окончен. Будьте здоровы!")
+
+# Мне помог ИИ, так как я ещё плохо ориентируюсь в коде
